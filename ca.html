@@ -1,0 +1,57 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+ 
+  <title>Miles to Kilometers Converter</title>
+  <meta name="description" content="Simple Converter of Oil Comsume">
+  <meta name="author" content="Cheng-An Ma">
+ 
+  <script>
+  var txtMiles;
+  var txtKm;
+ 
+  var KM_TO_MILES = 0.621371;
+  var MILES_TO_KM = 1.60934;
+ 
+  function initElements() {
+    if (!txtMiles) {  // Lazy initialization.
+      txtMiles = document.getElementById("txt-miles");
+      txtKm = document.getElementById("txt-km");
+    }
+  }
+ 
+  function calcMilesFromKilometers() {
+    initElements();
+    var km = parseFloat(txtKm.value);
+    txtMiles.value = String(km * MILES_TO_KM / 3.785412);
+  }
+ 
+  function calcKilometersFromMiles() {
+    initElements();
+    var miles = parseFloat(txtMiles.value);
+    txtKm.value = String(miles * KM_TO_MILES / 0.264172);
+  }
+  </script>
+</head>
+ 
+<body>
+ 
+<b>Oil Comsume Converter</b> <br>
+<br>
+ 
+<table border="1" cellpadding="8" cellspacing="0" style="width: 700px;">
+<tbody>
+  <tr>
+    <td>1 Liter <input id="txt-miles" size="20" type="text" value=""/> Kilometers =</td>
+    <td>1 Gallon <input id="txt-km" size="20" type="text" value=""/> Miles</td>
+  </tr>
+  <tr>
+    <td> <button type="button" onclick="calcMilesFromKilometers();">Calculate Miles/Gallon to Kilometers/L </button> </td>
+    <td> <button type="button" onclick="calcKilometersFromMiles();">Calculate Kilometers/L to Miles/Gallon</button> </td>
+  </tr>
+</table>
+
+</body>
+</html>
